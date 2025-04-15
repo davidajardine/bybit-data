@@ -1,6 +1,6 @@
 # Bybit Data Ingestion Engine
 
-This repository powers the data backend for Wormsign Terminal — a precision crypto trade analysis engine.  
+This repository powers the data backend for ContextOS — a precision crypto trade analysis engine.  
 It extracts 1-minute OHLCV, Open Interest, and Funding Rate data from Bybit's V5 API and merges them into a single time-aligned SQLite database for high-resolution backtesting and AI-driven trade setup classification.
 
 ---
