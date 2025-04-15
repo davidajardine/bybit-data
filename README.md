@@ -18,29 +18,29 @@ It extracts 1-minute OHLCV, Open Interest, and Funding Rate data from Bybit's V5
 
 ## 🗂 Project Structure
 
-```bash
-bybit-data-ingestion/
-│
-├── config/                 # Centralized settings
-│   └── settings.py
-│
-├── data/                   # Output SQLite DB
-│   └── bybit_data.db
-│
-├── ingest/
-│   ├── extract/            # API extractors
-│   │   ├── funding_extractor.py
-│   │   ├── kline_extractor.py
-│   │   ├── oi_extractor.py
-│   ├── load/               # SQLite writer
-│   │   └── sqlite_loader.py
-│   └── transform/          # Timestamp utilities
-│       └── time_utils.py
-│
-├── logger.py               # Global logging utility
-├── bybit_data.py           # Main ETL runner
-├── merge_to_main.py        # Final unification script
-```
+   ```bash
+   bybit-data-ingestion/
+   │
+   ├── config/                 # Centralized settings
+   │   └── settings.py
+   │
+   ├── data/                   # Output SQLite DB
+   │   └── bybit_data.db
+   │
+   ├── ingest/
+   │   ├── extract/            # API extractors
+   │   │   ├── funding_extractor.py
+   │   │   ├── kline_extractor.py
+   │   │   ├── oi_extractor.py
+   │   ├── load/               # SQLite writer
+   │   │   └── sqlite_loader.py
+   │   └── transform/          # Timestamp utilities
+   │       └── time_utils.py
+   │
+   ├── logger.py               # Global logging utility
+   ├── bybit_data.py           # Main ETL runner
+   ├── merge_to_main.py        # Final unification script
+   ```
 
 ## 🧠 How It Works
 
@@ -59,24 +59,24 @@ bybit_funding
 
 Merge the data into bybit_main:
 
-  ```bash
-  python merge_to_main.py
-  ```
+   ```bash
+   python merge_to_main.py
+   ```
 
 This resamples and forward-fills OI and funding rates into a clean 1-minute time series.
 
 All settings live in `config/settings.py`, including:
 
-```python
-SYMBOL = "BTCUSDT"
-INTERVAL = "1"
-INTERVAL_OI = "5min"
-START_DATE_STR = "2021-01-01T00:00:00"
-END_DATE_STR = "2024-12-31T23:59:00"
-CHUNK_SIZE = 200
-TABLE_NAME = "bybit_kline"
-DB_PATH = "data/bybit_data.db"
-```
+   ```python
+   SYMBOL = "BTCUSDT"
+   INTERVAL = "1"
+   INTERVAL_OI = "5min"
+   START_DATE_STR = "2021-01-01T00:00:00"
+   END_DATE_STR = "2024-12-31T23:59:00"
+   CHUNK_SIZE = 200
+   TABLE_NAME = "bybit_kline"
+   DB_PATH = "data/bybit_data.db"
+   ```
 
 ## 📄 License
 
